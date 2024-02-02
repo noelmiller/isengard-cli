@@ -1,4 +1,4 @@
-let &runtimepath=/isengard-vim
+set rtp+=/isengard-vim
 set rtp+=/isengard-vim/bundle/Vundle.vim
 
 call vundle#begin()
