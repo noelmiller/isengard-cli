@@ -18,6 +18,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'Raimondi/delimitMate'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'github/copilot.vim'
 call vundle#end()
 
 syntax on

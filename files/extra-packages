@@ -4,3 +4,5 @@ ripgrep
 ssh-import-id
 vim
 zellij
+# for github copilot vim plugin
+nodejs-21
