@@ -1,5 +1,5 @@
-set runtimepath+=/isengard-vim
-" set rtp+=/isengard-vim/bundle/Vundle.vim
+set rtp+=/isengard-vim/bundle/Vundle.vim
+set rtp+=/isengard-vim
 
 set nocompatible
 filetype off
