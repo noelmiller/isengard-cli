@@ -1,5 +1,21 @@
-execute pathogen#infect()
 let &runtimepath=/isengard-vim
+set rtp+=/isengard-vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'Yggdroot/indentLine'
+Plugin 'pedrohdz/vim-yaml-folds'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'dense-analysis/ale'
+Plugin 'joshdick/onedark.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'Raimondi/delimitMate'
+Plugin 'gabrielelana/vim-markdown'
+Plugin 'airblade/vim-gitgutter'
+call vundle#end()
 
 syntax on
 filetype plugin indent on

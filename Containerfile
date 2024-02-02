@@ -7,12 +7,11 @@ LABEL com.github.containers.toolbox="true" \
 
 COPY files /
 
-ADD https://tpo.pe/pathogen.vim /isengard-vim/autoload/pathogen.vim
-
 RUN apk update && \
     apk upgrade && \
     grep -v '^#' /extra-packages | xargs apk add && \
-    grep -v '^#' /vim-plugins | xargs git clone
+    git clone https://github.com/VundleVim/Vundle.vim.git /isengard-vim/bundle/Vundle.vim && \
+    vim +PlugInstall +qall
 
 RUN rm /extra-packages && \
     rm /vim-plugins
