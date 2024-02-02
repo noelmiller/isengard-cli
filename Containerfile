@@ -10,7 +10,6 @@ COPY files /
 RUN apk update && \
     apk upgrade && \
     grep -v '^#' /extra-packages | xargs apk add && \
-    git config --global core.autocrlf input && \
     git clone https://github.com/VundleVim/Vundle.vim.git /isengard-vim/bundle/Vundle.vim && \
     vim -u /isengard-vim/vimrc +PluginInstall +qall
 
