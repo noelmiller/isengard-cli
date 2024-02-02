@@ -13,8 +13,7 @@ RUN apk update && \
     git clone https://github.com/VundleVim/Vundle.vim.git /isengard-vim/bundle/Vundle.vim && \
     vim -u /isengard-vim/vimrc +PluginInstall +qall
 
-RUN rm /extra-packages && \
-    rm /vim-plugins
+RUN rm /extra-packages
 
 RUN   ln -fs /bin/sh /usr/bin/sh && \
       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
