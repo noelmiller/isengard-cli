@@ -11,7 +11,7 @@ RUN apk update && \
     apk upgrade && \
     grep -v '^#' /extra-packages | xargs apk add && \
     git clone https://github.com/VundleVim/Vundle.vim.git /isengard-vim/bundle/Vundle.vim && \
-    vim +PlugInstall +qall
+    vim +PluginInstall +qall
 
 RUN rm /extra-packages && \
     rm /vim-plugins
