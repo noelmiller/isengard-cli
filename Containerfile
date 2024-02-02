@@ -6,6 +6,7 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="noelmiller@protonmail.com"
 
 COPY extra-packages /
+COPY files /
 RUN apk update && \
     apk upgrade && \
     grep -v '^#' /extra-packages | xargs apk add
