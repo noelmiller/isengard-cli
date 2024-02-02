@@ -4,7 +4,7 @@ set rtp+=/isengard-vim
 set nocompatible
 filetype off
 
-call vundle#begin()
+call vundle#begin('/isengard-vim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
