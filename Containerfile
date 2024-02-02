@@ -7,9 +7,11 @@ LABEL com.github.containers.toolbox="true" \
 
 COPY extra-packages /
 COPY files /
+ADD https://tpo.pe/pathogen.vim /isengard-vim/autoload/pathogen.vim
 RUN apk update && \
     apk upgrade && \
-    grep -v '^#' /extra-packages | xargs apk add
+    grep -v '^#' /extra-packages | xargs apk add && \
+    grep -v '^#' /vim-plugins | xargs git clone
 RUN rm /extra-packages
 
 RUN   ln -fs /bin/sh /usr/bin/sh && \

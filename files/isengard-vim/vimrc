@@ -1,0 +1,58 @@
+execute pathogen#infect()
+let &runtimepath=/isengard-vim
+
+syntax on
+filetype plugin indent on
+
+autocmd FileType yaml setlocal ai et sw=2 ts=2 sts=2 nu cursorcolumn
+
+set cursorline
+set foldlevelstart=20
+set foldmethod=syntax
+
+set mouse=a
+
+"" Set Line Numbers
+:set number
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
+
+"" replace tabs with spaces in YAML files
+let @r = ':%retab|'
+
+"" enable paste mode
+let @p = ':set paste'
+
+"" disable paste mode
+let @n = ':set nopaste'
+
+"" remove trailing spaces
+let @t = ':%s/\s\+$//e'
+
+"" Configure yaml linting
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
+
+"" NERDTree
+" Open NERDTree
+nmap <C-f> :NERDTreeToggle<CR>
+" Open NERDTree Automatically
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"" Shortcutting split navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+"" Vim Folds Colors
+hi Folded ctermfg=black
+hi Folded ctermbg=white
+
+"" Configure Ansible Plugin
+au BufRead,BufNewFile */ansible/*.yml set filetype=yaml.ansible "Detect any files that are located in a folder called ansible
