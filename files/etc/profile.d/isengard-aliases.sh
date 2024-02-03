@@ -14,6 +14,11 @@ alias acd="ansible-navigator config dump"
 alias av="ansible --version"
 alias aig="ansible-navigator inventory --graph"
 
+# ===============================
+# Ansible aliases (ansible-navigator)
+# ===============================
+alias host-term="kde-prompt --tab-with-profile=Host"
+
 # ================
 # General aliases
 # ================
