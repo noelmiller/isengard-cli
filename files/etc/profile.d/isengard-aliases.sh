@@ -15,9 +15,9 @@ alias av="ansible --version"
 alias aig="ansible-navigator inventory --graph"
 
 # ===============================
-# Ansible aliases (ansible-navigator)
+# Terminal Aliases
 # ===============================
-alias host-term="kde-prompt --tab-with-profile=Host"
+alias hterm="kde-prompt --tab-with-profile=Host"
 
 # ================
 # General aliases
