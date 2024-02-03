@@ -14,7 +14,7 @@ RUN apk update && \
     vim -u /isengard-vim/vimrc +PluginInstall +qall && \
     ln -fs /usr/bin/distrobox-host-exec /usr/bin/ujust && \
     ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/firefox && \
-    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/code
+    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/code && \
     ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/kde-prompt
 
 RUN rm /extra-packages
