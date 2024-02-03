@@ -28,3 +28,6 @@ alias scp="echo -e \nStop using scp\n\nSee https://www.redhat.com/en/blog/openss
 
 # decomment a config file
 alias decomment='grep -v -E "^[[:space:]]*((#|;|//).*)?$" '
+
+# check justfile
+alias check-just="just --unstable --fmt --check -f"
