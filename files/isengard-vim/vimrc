@@ -3,6 +3,7 @@ set rtp+=/isengard-vim
 
 set nocompatible
 filetype off
+set backspace=indent,eol,start
 
 call vundle#begin('/isengard-vim/bundle')
 Plugin 'VundleVim/Vundle.vim'
