@@ -11,6 +11,7 @@ RUN apk update && \
     apk upgrade && \
     grep -v '^#' /extra-packages | xargs apk add && \
     git clone https://github.com/VundleVim/Vundle.vim.git /isengard-vim/bundle/Vundle.vim && \
-    vim -u /isengard-vim/vimrc +PluginInstall +qall
+    vim -u /isengard-vim/vimrc +PluginInstall +qall && \
+    ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/ujust
 
 RUN rm /extra-packages
