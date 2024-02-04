@@ -15,6 +15,7 @@ RUN apk update && \
     git clone https://github.com/VundleVim/Vundle.vim.git /isengard-vim/bundle/Vundle.vim && \
     vim -u /isengard-vim/vimrc +PluginInstall +qall && \
     ln -fs /usr/bin/distrobox-host-exec /usr/bin/ujust && \
+    ln -fs /usr/bin/distrobox-host-exec /usr/bin/distrobox && \
     ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/firefox && \
     ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/code && \
     ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/kde-prompt
