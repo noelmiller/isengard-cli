@@ -31,3 +31,6 @@ alias decomment='grep -v -E "^[[:space:]]*((#|;|//).*)?$" '
 
 # check justfile
 alias check-just="just --unstable --fmt --check -f"
+
+# lazygit
+alias lg="lazygit"
