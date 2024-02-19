@@ -3,6 +3,7 @@ direnv
 gh
 grype
 lazygit
+neovim
 # for github copilot vim plugin
 nodejs-21
 ripgrep
