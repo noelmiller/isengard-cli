@@ -14,7 +14,8 @@ RUN apk update && \
     sed -i 's/Bluefin/Isengard/g; s/bluefin/isengard/g' /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
     git clone https://github.com/VundleVim/Vundle.vim.git /isengard-vim/bundle/Vundle.vim && \
     vim -u /isengard-vim/vimrc +PluginInstall +qall && \
-    git clone https://github.com/NvChad/NvChad ~/isengard-neovim/nvim --depth 1 && \
+    mkdir -p /isengard-neovim && \
+    git clone https://github.com/NvChad/NvChad /isengard-neovim/nvim --depth 1 && \
     ln -fs /usr/bin/distrobox-host-exec /usr/bin/ujust && \
     ln -fs /usr/bin/distrobox-host-exec /usr/bin/distrobox && \
     ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/firefox && \
