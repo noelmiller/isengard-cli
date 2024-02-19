@@ -12,8 +12,6 @@ RUN apk update && \
     grep -v '^#' /extra-packages | xargs apk add && \
     mv /etc/profile.d/00-bluefin-cli-brew-firstrun.sh /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
     sed -i 's/Bluefin/Isengard/g; s/bluefin/isengard/g' /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
-    git clone https://github.com/VundleVim/Vundle.vim.git /isengard-vim/bundle/Vundle.vim && \
-    vim -u /isengard-vim/vimrc +PluginInstall +qall && \
     mkdir -p /XDG_DIRS && \
     mkdir -p /XDG_DIRS/config && \
     mkdir -p /XDG_DIRS/local/share && \
