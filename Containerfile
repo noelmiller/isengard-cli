@@ -19,7 +19,7 @@ RUN apk update && \
     mkdir -p /XDG_DIRS/local/share && \
     mkdir -p /XDG_DIRS/local/state && \
     mkdir -p /XDG_DIRS/cache && \
-    git clone https://github.com/noelmiller/lazyvim.git /XDG_DIRS/config/nvim --depth 1 && \
+    mv /isengard-nvim /XDG_DIRS/config/nvim && \
     chmod -R o+rwx /XDG_DIRS/ && \
     ln -fs /usr/bin/distrobox-host-exec /usr/bin/ujust && \
     ln -fs /usr/bin/distrobox-host-exec /usr/bin/distrobox && \
