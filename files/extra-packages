@@ -1,11 +1,12 @@
+aws-cli
 direnv
 gh
+grype
+lazygit
+# for github copilot vim plugin
+nodejs-21
 ripgrep
 ssh-import-id
 vim
+yq
 zellij
-# for github copilot vim plugin
-nodejs-21
-grype
-lazygit
-aws-cli
