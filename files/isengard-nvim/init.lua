@@ -1,6 +1,8 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
+-- ignore annoying error
+vim.g.lsp_zero_extend_lspconfig = 0
 -- initialize lsp_zero
 local lsp_zero = require("lsp-zero")
 lsp_zero.extend_lspconfig()
@@ -28,10 +30,30 @@ require("mason-lspconfig").setup({
   },
 })
 
+local cmp = require("cmp")
+
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.abort(),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently
+  }),
+  sources = cmp.config.sources({
+    -- Copilot Source
+    { name = "copilot", group_index = 2 },
+    -- Other Sources
+    { name = "nvim_lsp", group_index = 2 },
+    { name = "path", group_index = 2 },
+    { name = "luasnip", group_index = 2 },
+  }),
+})
+
 -- configure github copilot
 require("copilot").setup({
   panel = {
-    enabled = true,
+    enabled = false,
     auto_refresh = false,
     keymap = {
       jump_prev = "[[",
@@ -46,7 +68,7 @@ require("copilot").setup({
     },
   },
   suggestion = {
-    enabled = true,
+    enabled = false,
     auto_trigger = false,
     debounce = 75,
     keymap = {
