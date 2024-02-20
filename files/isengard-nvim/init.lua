@@ -1,6 +1,35 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
-require('copilot').setup({
+
+-- initialize lsp_zero
+local lsp_zero = require("lsp-zero")
+lsp_zero.extend_lspconfig()
+
+lsp_zero.on_attach(function(client, bufnr)
+  lsp_zero.default_keymaps({ buffer = bufnr })
+end)
+
+-- Add language servers to mason and configure them with lsp_zero
+require("mason").setup({})
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "ansiblels",
+    "bashls",
+    "cssls",
+    "dockerls",
+    "gopls",
+    "jsonls",
+    "pylsp",
+    "tailwindcss",
+    "yamlls",
+  },
+  handlers = {
+    lsp_zero.default_setup,
+  },
+})
+
+-- configure github copilot
+require("copilot").setup({
   panel = {
     enabled = true,
     auto_refresh = false,
@@ -9,11 +38,11 @@ require('copilot').setup({
       jump_next = "]]",
       accept = "<CR>",
       refresh = "gr",
-      open = "<M-CR>"
+      open = "<M-CR>",
     },
     layout = {
       position = "bottom", -- | top | left | right
-      ratio = 0.4
+      ratio = 0.4,
     },
   },
   suggestion = {
@@ -40,6 +69,6 @@ require('copilot').setup({
     cvs = false,
     ["."] = false,
   },
-  copilot_node_command = 'node', -- Node.js version must be > 18.x
+  copilot_node_command = "node", -- Node.js version must be > 18.x
   server_opts_overrides = {},
 })
