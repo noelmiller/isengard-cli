@@ -6,7 +6,7 @@ This terminal is based off of [bluefin-cli](https://github.com/ublue-os/toolboxe
 
 ### Changes to Bluefin-CLI
 
-- vimrc and vim plugins are included in the image
+- lazy neovim config included in image
 - Bash Aliases that I find useful
 - Additional [packages](https://github.com/noelmiller/isengard-cli/blob/main/files/extra-packages) that are not in the base image
 
@@ -16,7 +16,7 @@ This terminal is based off of [bluefin-cli](https://github.com/ublue-os/toolboxe
 
 Using [Distrobox](https://github.com/89luca89/distrobox):
 
-    distrobox create -i ghcr.io/noelmiller/isengard-cli -n isengard-cli
+    distrobox create -i ghcr.io/noelmiller/isengard-cli -n isengard-cli --volume isengard-cli-gh:/XDG_DIRS/config/gh:rslave --volume isengard-cli-github-copilot:/XDG_DIRS/config/github-copilot:rslave --volume isengard-cli-zoxide:/XDG_DIRS/local/share/zoxide:rslave --volume isengard-cli-atuin:/XDG_DIRS/local/share/atuin:rslave
     distrobox enter isengard-cli
     
 
