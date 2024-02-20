@@ -8,6 +8,6 @@ neovim
 nodejs-21
 ripgrep
 ssh-import-id
-vim
 yq
 zellij
+zoxide

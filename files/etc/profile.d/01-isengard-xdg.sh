@@ -3,7 +3,7 @@ export XDG_DATA_HOME=/XDG_DIRS/local/share
 export XDG_STATE_HOME=/XDG_DIRS/local/state
 export XDG_CACHE_HOME=/XDG_DIRS/cache
 
-if [ ! -w "/XDG_DIRS/config/gh" ] || [ ! -w "/XDG_DIRS/config/github-copilot" ] || [ ! -w "/XDG_DIRS/local/share/zoxide" ] || [ ! -w "/XDG_DIRS/local/share/atuin" ]; then
-	echo "Fixing XDG_DIRS permissions..."
-	sudo chmod -R o+rwx /XDG_DIRS
+if [[ ! -G /XDG_DIRS ]]; then
+	echo "Setting permissions for XDG_DIRS..."
+	sudo chown -R $USER:$USER /XDG_DIRS/
 fi
