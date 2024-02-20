@@ -16,7 +16,7 @@ This terminal is based off of [bluefin-cli](https://github.com/ublue-os/toolboxe
 
 Using [Distrobox](https://github.com/89luca89/distrobox):
 
-    distrobox create -i ghcr.io/noelmiller/isengard-cli -n isengard-cli --volume isengard-cli-gh:/XDG_DIRS/config/gh:rslave --volume isengard-cli-github-copilot:/XDG_DIRS/config/github-copilot:rslave --volume isengard-cli-zoxide:/XDG_DIRS/local/share/zoxide:rslave --volume isengard-cli-atuin:/XDG_DIRS/local/share/atuin:rslave
+    distrobox create -i ghcr.io/noelmiller/isengard-cli -n isengard-cli --volume isengard-cli-gh:/XDG_DIRS/config/gh:rslave --volume isengard-cli-github-copilot:/XDG_DIRS/config/github-copilot:rslave --volume isengard-cli-zoxide:/XDG_DIRS/local/share/zoxide:rslave --volume isengard-cli-atuin:/XDG_DIRS/local/share/atuin:rslave --volume isengard-cli-lazygit:/XDG_DIRS/config/lazygit:rslave
     distrobox enter isengard-cli
     
 
