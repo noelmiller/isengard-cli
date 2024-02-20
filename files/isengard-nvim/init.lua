@@ -1,15 +1,8 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
--- ignore annoying error
-vim.g.lsp_zero_extend_lspconfig = 0
--- initialize lsp_zero
-local lsp_zero = require("lsp-zero")
-lsp_zero.extend_lspconfig()
-
-lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({ buffer = bufnr })
-end)
+local lspconfig = require("lspconfig")
+local lsp_capabilitites = require("cmp_nvim_lsp").default_capabilities()
 
 -- Add language servers to mason and configure them with lsp_zero
 require("mason").setup({})
@@ -26,7 +19,11 @@ require("mason-lspconfig").setup({
     "yamlls",
   },
   handlers = {
-    lsp_zero.default_setup,
+    function(server)
+      lspconfig[server].setup({
+        capabilities = lsp_capabilities,
+      })
+    end,
   },
 })
 
