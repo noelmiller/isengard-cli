@@ -18,10 +18,10 @@ RUN apk update && \
   mkdir -p /XDG_DIRS/local/state && \
   mkdir -p /XDG_DIRS/cache && \
   mv /tmux /XDG_DIRS/config/tmux && \
+  source /etc/profile.d/01-isengard-xdg.sh && \
   git clone https://github.com/tmux-plugins/tpm /XDG_DIRS/config/tmux/plugins/tpm && \
   /XDG_DIRS/config/tmux/plugins/tpm/bin/install_plugins && \
   mv /isengard-nvim /XDG_DIRS/config/nvim && \
-  source /etc/profile.d/01-isengard-xdg.sh && \
   nvim --headless "+Lazy! sync" +qa && \
   chmod -R o+rwx /XDG_DIRS/ && \
   ln -fs /usr/bin/distrobox-host-exec /usr/bin/ujust && \
