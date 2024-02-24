@@ -9,6 +9,7 @@ neovim
 nodejs-21
 ripgrep
 ssh-import-id
+tmux
 yq
 zellij
 zoxide
