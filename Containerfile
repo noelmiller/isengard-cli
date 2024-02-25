@@ -26,7 +26,6 @@ RUN apk update && \
   chmod -R o+rwx /XDG_DIRS/ && \
   ln -fs /usr/bin/distrobox-host-exec /usr/bin/ujust && \
   ln -fs /usr/bin/distrobox-host-exec /usr/bin/distrobox && \
-  ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/firefox && \
   ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/code && \
   ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/kde-prompt
 
