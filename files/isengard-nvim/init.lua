@@ -103,7 +103,7 @@ require("peek").setup({
 
   update_on_change = true,
 
-  app = "webview", -- 'webview', 'browser', string or a table of strings
+  app = app = { 'flatpak run com.google.Chrome', '--new-window' }, -- 'webview', 'browser', string or a table of strings
   -- explained below
 
   filetype = { "markdown" }, -- list of filetypes to recognize as markdown
