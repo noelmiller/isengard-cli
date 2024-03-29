@@ -12,7 +12,8 @@ COPY files /
 RUN apk update && \
   apk upgrade && \
   grep -v '^#' /extra-packages | xargs apk add && \
-  gh auth login --with-token < ${GITHUB_AUTH_TOKEN} && \
+  export GH_TOKEN=${GITHUB_AUTH_TOKEN} && \
+  gh auth login && \
   gh extension install github/gh-copilot && \
   mv /etc/profile.d/00-bluefin-cli-brew-firstrun.sh /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
   sed -i 's/Bluefin/Isengard/g; s/bluefin/isengard/g' /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \

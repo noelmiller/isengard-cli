@@ -112,7 +112,7 @@ jobs:
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
           build-args: |
-            GH_AUTH_TOKEN=${{ secrets.GITHUB_AUTH_TOKEN_TEST }}
+            GH_AUTH_TOKEN=${{ github.token }}
           extra-args: |
             --disable-content-trust
             
