@@ -6,13 +6,32 @@ This terminal is based off of [bluefin-cli](https://github.com/ublue-os/toolboxe
 
 ### Changes to Bluefin-CLI
 
+#### Neovim
+
 - lazy neovim config included in image
-- Bash Aliases that I find useful
-- Additional [packages](https://github.com/noelmiller/isengard-cli/blob/main/files/extra-packages) that are not in the base image
+- lazy neovim plugins automatically installed
+
+#### TMUX
+
+- tmux config included in image
+- tmux plugins automatically installed
+
+#### Github Copilot
+
+- github copilot available for both neovim and bash
+- additional bash aliases
+
+#### Packages
+
+- additional [packages](https://github.com/noelmiller/isengard-cli/blob/main/files/extra-packages) that are not in the base image
 
 ## How to use
 
-### Create Box
+### Included in Isengard
+
+[Isengard](https://github.com/noelmiller/isengard) is my custom image based off of [Bazzite](https://github.com/ublue-os/bazzite). It is configured as a quadlet and can be made available in Ptyxis by default.
+
+### Create DistroBox
 
 Using [Distrobox](https://github.com/89luca89/distrobox):
 
@@ -22,7 +41,7 @@ Using [Distrobox](https://github.com/89luca89/distrobox):
 
 ### Make your own
 
-Fork and add programs to this this image - over time you'll end up with the perfect CLI for you.
+Fork and add programs to this image - over time you'll end up with the perfect CLI for you.
 Keeping it as a pet works, though the author recommends leaving all your config in git and routinely pulling a new image.
 
 ## Verification
