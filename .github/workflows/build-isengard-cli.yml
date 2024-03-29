@@ -111,6 +111,8 @@ jobs:
           registry: ${{ steps.registry_case.outputs.lowercase }}
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
+          build-args: |
+            GH_AUTH_TOKEN=${{ secrets.GITHUB_AUTH_TOKEN_TEST }}
           extra-args: |
             --disable-content-trust
             

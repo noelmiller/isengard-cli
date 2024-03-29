@@ -1,5 +1,7 @@
 FROM ghcr.io/ublue-os/bluefin-cli:latest
 
+ARG GITHUB_AUTH_TOKEN=${GITHUB_AUTH_TOKEN}
+
 LABEL com.github.containers.toolbox="true" \
   usage="This image is meant to be used with the toolbox or distrobox command" \
   summary="A cloud-native terminal experience" \
@@ -10,6 +12,7 @@ COPY files /
 RUN apk update && \
   apk upgrade && \
   grep -v '^#' /extra-packages | xargs apk add && \
+  gh auth login --with-token < ${GITHUB_AUTH_TOKEN} && \
   gh extension install github/gh-copilot && \
   mv /etc/profile.d/00-bluefin-cli-brew-firstrun.sh /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
   sed -i 's/Bluefin/Isengard/g; s/bluefin/isengard/g' /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
