@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "### Creating XDG_DIRS.. ###"
+
 mkdir -vp /XDG_DIRS
 mkdir -vp /XDG_DIRS/config
 mkdir -vp /XDG_DIRS/local/share

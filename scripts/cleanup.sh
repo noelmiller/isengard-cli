@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "### Cleaning up.. ###"
+
 # Sets permissions for the XDG directories
 chmod -R o+rwx /XDG_DIRS/
 

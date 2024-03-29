@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "### Configure Github Copilot Extension.. ###"
-
 source /etc/profile.d/01-isengard-xdg.sh
+
+echo "### Configure Github Copilot Extension.. ###"
 
 echo "## Exporting Token.. ##"
 export GH_TOKEN="${GH_TOKEN}"
