@@ -10,6 +10,7 @@ COPY files /
 RUN apk update && \
   apk upgrade && \
   grep -v '^#' /extra-packages | xargs apk add && \
+  gh extension install github/gh-copilot && \
   mv /etc/profile.d/00-bluefin-cli-brew-firstrun.sh /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
   sed -i 's/Bluefin/Isengard/g; s/bluefin/isengard/g' /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
   mkdir -p /XDG_DIRS && \
