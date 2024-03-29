@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GREEN='\033[0;32m'
+source /scripts/ansi_colors.sh
 
 echo -e "${GREEN}### Updating and adding extra packages.. ###"
 

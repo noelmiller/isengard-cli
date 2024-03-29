@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "### Creating XDG_DIRS.. ###"
+source /scripts/ansi_colors.sh
+
+echo -e "${GREEN}### Creating XDG_DIRS.. ###"
 
 mkdir -vp /XDG_DIRS
 mkdir -vp /XDG_DIRS/config

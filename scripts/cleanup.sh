@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "### Cleaning up.. ###"
+source /scripts/ansi_colors.sh
+
+echo -e "${GREEN}### Cleaning up.. ###"
 
 # Sets permissions for the XDG directories
 chmod -R o+rwx /XDG_DIRS/

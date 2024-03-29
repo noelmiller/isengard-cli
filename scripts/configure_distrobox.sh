@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /scripts/ansi_colors.sh
+
 echo "### Configuring Distrobox Aliases.. ###"
 
 ln -fsv /usr/bin/distrobox-host-exec /usr/bin/ujust
