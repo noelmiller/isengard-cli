@@ -1,9 +1,5 @@
 FROM ghcr.io/ublue-os/bluefin-cli:latest
 
-ARG GITHUB_AUTH_TOKEN=${GITHUB_AUTH_TOKEN}
-
-ENV GH_TOKEN=${GITHUB_AUTH_TOKEN}
-
 LABEL com.github.containers.toolbox="true" \
   usage="This image is meant to be used with the toolbox or distrobox command" \
   summary="A cloud-native terminal experience" \
