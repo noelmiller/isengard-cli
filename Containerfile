@@ -1,4 +1,5 @@
 FROM ghcr.io/ublue-os/bluefin-cli:latest
+ARG GH_TOKEN="${GH_TOKEN}"
 
 LABEL com.github.containers.toolbox="true" \
   usage="This image is meant to be used with the toolbox or distrobox command" \
@@ -19,6 +20,11 @@ RUN apk update && \
   mkdir -p /XDG_DIRS/cache && \
   mv /tmux /XDG_DIRS/config/tmux && \
   source /etc/profile.d/01-isengard-xdg.sh && \
+  export GH_TOKEN="${GH_TOKEN}" && \
+  gh extension install github/gh-copilot && \
+  mkdir -p /XDG_DIRS/config/gh-copilot && \
+  echo "optional_analytics: false" > /XDG_DIRS/config/gh-copilot/config.yml && \
+  gh copilot alias -- bash >> /etc/profile.d/03-isengard-functions.sh && \
   git clone https://github.com/tmux-plugins/tpm /XDG_DIRS/config/tmux/plugins/tpm && \
   /XDG_DIRS/config/tmux/plugins/tpm/bin/install_plugins && \
   mv /isengard-nvim /XDG_DIRS/config/nvim && \
