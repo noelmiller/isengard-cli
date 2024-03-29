@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "### Updating and adding extra packages.. ###"
+echo "### Configure Github Copilot Extension.. ###"
 
 source /etc/profile.d/01-isengard-xdg.sh
 

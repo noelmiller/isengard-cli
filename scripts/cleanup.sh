@@ -2,7 +2,7 @@
 
 echo "### Cleaning up.. ###"
 # Sets permissions for the XDG directories
-chmod -vR o+rwx /XDG_DIRS/
+chmod -R o+rwx /XDG_DIRS/
 
 # Removes files and directories that are no longer needed
 rm -v /extra-packages
