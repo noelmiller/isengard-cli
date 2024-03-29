@@ -88,8 +88,8 @@ jobs:
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ steps.generate-tags.outputs.alias_tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          extra-args: |
-            --env GH_TOKEN=${{ github.token }}
+          build-args: |
+            GH_TOKEN=${{ github.token }}
           oci: false
           
       # Workaround bug where capital letters in your GitHub username make it impossible to push to GHCR.
