@@ -7,32 +7,13 @@ LABEL com.github.containers.toolbox="true" \
   maintainer="noelmiller@protonmail.com"
 
 COPY files /
+COPY scripts /scripts
 
-RUN apk update && \
-  apk upgrade && \
-  grep -v '^#' /extra-packages | xargs apk add && \
-  mv /etc/profile.d/00-bluefin-cli-brew-firstrun.sh /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
-  sed -i 's/Bluefin/Isengard/g; s/bluefin/isengard/g' /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
-  mkdir -p /XDG_DIRS && \
-  mkdir -p /XDG_DIRS/config && \
-  mkdir -p /XDG_DIRS/local/share && \
-  mkdir -p /XDG_DIRS/local/state && \
-  mkdir -p /XDG_DIRS/cache && \
-  mv /tmux /XDG_DIRS/config/tmux && \
-  source /etc/profile.d/01-isengard-xdg.sh && \
-  export GH_TOKEN="${GH_TOKEN}" && \
-  gh extension install github/gh-copilot && \
-  mkdir -p /XDG_DIRS/config/gh-copilot && \
-  echo "optional_analytics: false" > /XDG_DIRS/config/gh-copilot/config.yml && \
-  gh copilot alias -- bash >> /etc/profile.d/03-isengard-functions.sh && \
-  git clone https://github.com/tmux-plugins/tpm /XDG_DIRS/config/tmux/plugins/tpm && \
-  /XDG_DIRS/config/tmux/plugins/tpm/bin/install_plugins && \
-  mv /isengard-nvim /XDG_DIRS/config/nvim && \
-  nvim --headless "+Lazy! sync" +qa && \
-  chmod -R o+rwx /XDG_DIRS/ && \
-  ln -fs /usr/bin/distrobox-host-exec /usr/bin/ujust && \
-  ln -fs /usr/bin/distrobox-host-exec /usr/bin/distrobox && \
-  ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/code && \
-  ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/kde-prompt
-
-RUN rm /extra-packages
+RUN /scripts/update_and_add_packages.sh && \
+    /scripts/configure_brew.sh && \
+    /scripts/create_xdg_dirs.sh && \
+    /scripts/configure_github_copilot.sh && \
+    /scripts/configure_tmux.sh && \
+    /scripts/configure_nvim.sh && \
+    /scripts/configure_distrobox.sh && \
+    /scripts/cleanup.sh
