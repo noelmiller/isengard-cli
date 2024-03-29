@@ -22,7 +22,7 @@ RUN apk update && \
   source /etc/profile.d/01-isengard-xdg.sh && \
   export GH_TOKEN="${GH_TOKEN}" && \
   gh extension install github/gh-copilot && \
-  echo 'eval "$(gh copilot alias -- bash)"' >> /etc/profile.d/03-isengard-functions.sh && \
+  gh copilot alias -- bash >> /etc/profile.d/03-isengard-functions.sh && \
   git clone https://github.com/tmux-plugins/tpm /XDG_DIRS/config/tmux/plugins/tpm && \
   /XDG_DIRS/config/tmux/plugins/tpm/bin/install_plugins && \
   mv /isengard-nvim /XDG_DIRS/config/nvim && \
