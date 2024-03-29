@@ -11,7 +11,6 @@ COPY files /
 RUN apk update && \
   apk upgrade && \
   grep -v '^#' /extra-packages | xargs apk add && \
-  export GH_TOKEN="${GH_TOKEN}" && \
   mv /etc/profile.d/00-bluefin-cli-brew-firstrun.sh /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
   sed -i 's/Bluefin/Isengard/g; s/bluefin/isengard/g' /etc/profile.d/00-isengard-cli-brew-firstrun.sh && \
   mkdir -p /XDG_DIRS && \
@@ -21,6 +20,7 @@ RUN apk update && \
   mkdir -p /XDG_DIRS/cache && \
   mv /tmux /XDG_DIRS/config/tmux && \
   source /etc/profile.d/01-isengard-xdg.sh && \
+  export GH_TOKEN="${GH_TOKEN}" && \
   gh extension install github/gh-copilot && \
   echo 'eval "$(gh copilot alias -- bash)"' >> /etc/profile.d/03-isengard-functions.sh && \
   git clone https://github.com/tmux-plugins/tpm /XDG_DIRS/config/tmux/plugins/tpm && \
