@@ -14,6 +14,6 @@ RUN /scripts/update_and_add_packages.sh && \
     /scripts/create_xdg_dirs.sh && \
     /scripts/configure_github_copilot.sh && \
     /scripts/configure_tmux.sh && \
-    /scripts/configure_nvim.sh && \
+    /scripts/configure_emacs.sh && \
     /scripts/configure_distrobox.sh && \
     /scripts/cleanup.sh
