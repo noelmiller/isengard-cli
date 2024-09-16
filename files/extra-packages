@@ -1,14 +1,7 @@
-aws-cli
 direnv
 gh
 grype
-go-1.22
 lazygit
-neovim
-# for github copilot vim plugin
-nodejs-21
-# for neovim plugin support
-npm
 ripgrep
 ssh-import-id
 tmux
