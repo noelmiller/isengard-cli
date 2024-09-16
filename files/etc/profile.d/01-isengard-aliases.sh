@@ -34,7 +34,3 @@ alias check-just="just --unstable --fmt --check -f"
 
 # lazygit
 alias lg="lazygit"
-
-# vim aliases
-alias vim="nvim"
-alias vi="nvim"
