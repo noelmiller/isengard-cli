@@ -6,23 +6,11 @@ return {
     end
   },
   {
-    "williamboman/mason-lspconfig.nvim"
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "ansiblels",
-          "bashls",
-          "cssls",
-          "dockerls",
-          "gopls",
-          "html",
-          "jsonls",
-          "lua_ls",
-          "pylsp",
-          "tailwindcss",
-          "yamlls",
-        }
-      })
+    "williamboman/mason-lspconfig.nvim",
+    lazy = false,
+    opts = {
+      auto_install = true,
+    }
     end
   },
   {
