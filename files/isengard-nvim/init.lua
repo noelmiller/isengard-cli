@@ -1,32 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
-local lspconfig = require("lspconfig")
-local lsp_capabilitites = require("cmp_nvim_lsp").default_capabilities()
-
--- Add language servers to mason and configure them with lsp_zero
-require("mason").setup({})
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "ansiblels",
-    "bashls",
-    "cssls",
-    "dockerls",
-    "gopls",
-    "jsonls",
-    "pylsp",
-    "tailwindcss",
-    "yamlls",
-  },
-  handlers = {
-    function(server)
-      lspconfig[server].setup({
-        capabilities = lsp_capabilities,
-      })
-    end,
-  },
-})
-
 local cmp = require("cmp")
 
 cmp.setup({
