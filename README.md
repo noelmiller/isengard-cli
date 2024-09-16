@@ -6,11 +6,6 @@ This terminal is based off of [bluefin-cli](https://github.com/ublue-os/toolboxe
 
 ### Changes to Bluefin-CLI
 
-#### Neovim
-
-- lazy neovim config included in image
-- lazy neovim plugins automatically installed
-
 #### TMUX
 
 - tmux config included in image
@@ -18,7 +13,7 @@ This terminal is based off of [bluefin-cli](https://github.com/ublue-os/toolboxe
 
 #### Github Copilot
 
-- github copilot available for both neovim and bash
+- github copilot available for bash
 - additional bash aliases
 
 #### Packages
