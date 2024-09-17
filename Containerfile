@@ -1,4 +1,4 @@
-FROM ghcr.io/ublue-os/bluefin-cli:latest
+FROM ghcr.io/ublue-os/wolfi-toolbox:latest
 ARG GH_TOKEN="${GH_TOKEN}"
 
 LABEL com.github.containers.toolbox="true" \
@@ -9,8 +9,16 @@ LABEL com.github.containers.toolbox="true" \
 COPY files /
 COPY scripts /scripts
 
+# Configure Locales and get bash-prexec
+RUN curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o /tmp/bash-prexec \
+    && mkdir -p /usr/share/ \
+    && cp /tmp/bash-prexec /usr/share/bash-prexec \
+    && printf 'LANG=en_US.utf8\nexport LANG\n' > /etc/profile.d/locale.sh \
+    && printf 'LANG=en_US.utf8\nexport LANG\nSTARSHIP_CONFIG=/etc/starship.toml\nexport STARSHIP_CONFIG\neval "$(atuin init zsh)"\neval "$(zoxide init zsh --cmd cd)"\neval "$(starship init zsh)"' >> /etc/zsh/zshrc \
+    && printf 'LANG="en_US.UTF-8"' > /etc/locale.conf \
+    && rm -rf /tmp/*
+
 RUN /scripts/update_and_add_packages.sh && \
-    /scripts/configure_brew.sh && \
     /scripts/create_xdg_dirs.sh && \
     /scripts/configure_github_copilot.sh && \
     /scripts/configure_tmux.sh && \
