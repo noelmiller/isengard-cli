@@ -9,6 +9,13 @@ LABEL com.github.containers.toolbox="true" \
 COPY files /
 COPY scripts /scripts
 
+RUN /scripts/update_and_add_packages.sh && \
+    /scripts/create_xdg_dirs.sh && \
+    /scripts/configure_github_copilot.sh && \
+    /scripts/configure_tmux.sh && \
+    /scripts/configure_distrobox.sh && \
+    /scripts/cleanup.sh
+
 # Configure Locales and get bash-prexec
 RUN curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o /tmp/bash-prexec \
     && mkdir -p /usr/share/ \
@@ -17,10 +24,3 @@ RUN curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-pre
     && printf 'LANG=en_US.utf8\nexport LANG\nSTARSHIP_CONFIG=/etc/starship.toml\nexport STARSHIP_CONFIG\neval "$(atuin init zsh)"\neval "$(zoxide init zsh --cmd cd)"\neval "$(starship init zsh)"' >> /etc/zsh/zshrc \
     && printf 'LANG="en_US.UTF-8"' > /etc/locale.conf \
     && rm -rf /tmp/*
-
-RUN /scripts/update_and_add_packages.sh && \
-    /scripts/create_xdg_dirs.sh && \
-    /scripts/configure_github_copilot.sh && \
-    /scripts/configure_tmux.sh && \
-    /scripts/configure_distrobox.sh && \
-    /scripts/cleanup.sh
