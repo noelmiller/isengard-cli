@@ -2,9 +2,9 @@
 
 ## Description
 
-This terminal is based off of [bluefin-cli](https://github.com/ublue-os/toolboxes/tree/main/toolboxes/bluefin-cli) from the [Universal Blue](https://universal-blue.org/) project.
+This terminal is based off of [wolfi-toolbox](https://github.com/ublue-os/toolboxes/tree/main/toolboxes/wolfi-toolbox) from the [Universal Blue](https://universal-blue.org/) project. It is basically a fork of Bluefin-CLI without Brew included.
 
-### Changes to Bluefin-CLI
+### Changes to Wolfi Toolbox
 
 #### TMUX
 
@@ -18,7 +18,7 @@ This terminal is based off of [bluefin-cli](https://github.com/ublue-os/toolboxe
 
 #### Packages
 
-- additional [packages](https://github.com/noelmiller/isengard-cli/blob/main/files/extra-packages) that are not in the base image
+- additional [packages](https://github.com/noelmiller/isengard-cli/blob/main/files/extra-packages) that are not in the base image.
 
 ## How to use
 

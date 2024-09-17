@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source /scripts/ansi_colors.sh
-source /etc/profile.d/01-isengard-xdg.sh
+source /etc/profile.d/02-isengard-xdg.sh
 
 echo -e "${GREEN}### Configuring TMUX.. ###"
 
