@@ -1,3 +1,7 @@
+# Archiving this Project
+
+I have playing around with this for quite some time and I think I'm going to switch back to just using normal dotfiles with stow. It is too much of a pain for commands to randomly not work because I'm in the container rather than on the system. I may revisit this at some point, but now is not the time.
+
 # Isengard-CLI
 
 ## Description
